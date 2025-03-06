@@ -1,4 +1,17 @@
 import fetch from "node-fetch";
+import express from "express";
+import cors from "cors";
+
+
+const app = express();
+
+app.use(
+  cors({
+    origin: "*", // 🔥 Permite todas as origens (para testes)
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 const MICROSOFT_FORMS_URL =
   "https://forms.microsoft.com/formapi/api/0b057354-0fc9-47e5-8674-8449dd7e88b8/users/29901e3c-fd87-4cc9-8197-f7c6a3f03201/forms('VHMFC8kP5UeGdIRJ3X6IuDwekCmH_clMgZf3xqPwMgFUN0NGWks5SkVXQ0o2VVRUSEU3UDE3N0tYSi4u')/responses";

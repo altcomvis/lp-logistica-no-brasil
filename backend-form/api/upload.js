@@ -1,4 +1,16 @@
+import express from "express";
 import fetch from "node-fetch";
+import cors from "cors";
+
+const app = express();
+
+app.use(
+  cors({
+    origin: "*", // 🔥 Permite todas as origens (para testes)
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 export default async function handler(req, res) {
   // 🔥 Configurar CORS corretamente
